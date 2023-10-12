@@ -1,0 +1,18 @@
+Get all the countries with a population of less than 2 lakhs using Filter function
+
+
+// Using fetch to get data from the API endpoint
+fetch("https://restcountries.com/v3.1/all")
+  .then(response => response.json())
+  .then(countries => {
+    // Using filter() to get countries with population less than 200,000
+    const countriesWithLowPopulation = countries.filter(country => country.population < 200000);
+
+    // Output the names of countries with low population
+    countriesWithLowPopulation.forEach(country => {
+      console.log(country.name.common);
+    });
+  })
+  .catch(error => {
+    console.error("Error fetching data: ", error);
+  });
