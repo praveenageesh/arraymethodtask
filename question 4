@@ -1,0 +1,16 @@
+Print the total population of countries using reduce function
+
+// Using fetch to get data from the API endpoint
+fetch("https://restcountries.com/v3.1/all")
+  .then(response => response.json())
+  .then(countries => {
+    // Calculate total population using reduce()
+    const totalPopulation = countries.reduce((accumulator, country) => {
+      return accumulator + country.population;
+    }, 0);
+
+    console.log(`Total Population of All Countries: ${totalPopulation}`);
+  })
+  .catch(error => {
+    console.error("Error fetching data: ", error);
+  });
