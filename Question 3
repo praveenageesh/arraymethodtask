@@ -1,0 +1,21 @@
+Print the following details name, capital, flag using forEach function
+
+// Using fetch to get data from the API endpoint
+fetch("https://restcountries.com/v3.1/all")
+  .then(response => response.json())
+  .then(countries => {
+    // Iterate over the countries and print name, capital, and flag
+    countries.forEach(country => {
+      const name = country.name.common;
+      const capital = country.capital[0];
+      const flag = country.flags.png;
+
+      console.log(`Country Name: ${name}`);
+      console.log(`Capital: ${capital}`);
+      console.log(`Flag URL: ${flag}`);
+      console.log("------");
+    });
+  })
+  .catch(error => {
+    console.error("Error fetching data: ", error);
+  });
